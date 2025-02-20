@@ -1,22 +1,18 @@
-from trie import Trie
-from fuzzy_search import fuzzy_search
-
+#!/usr/bin/env python3
 def main():
-    # Build trie with sample words
-    words = ["hello", "help", "helmet", "hero", "heron"]
+    # Initialize and test trie functionality.
+    from trie import Trie
+    from fuzzy_search import fuzzy_search
     trie = Trie()
+    words = ["hello", "help", "helium"]
     for word in words:
         trie.insert(word)
+    print("Autocomplete results for 'hel':", trie.search("hel"))
     
-    # Autocomplete sample: search by prefix
-    prefix = "he"
-    autocomplete_results = trie.search(prefix)
-    print("Autocomplete results for '{}':".format(prefix), autocomplete_results)
-    
-    # Fuzzy search sample: assuming user may type a misspelled word
-    query = "hela"
-    fuzzy_results = fuzzy_search(query, max_distance=1, word_list=words)
-    print("Fuzzy search results for '{}':".format(query), fuzzy_results)
+    # Demonstrate fuzzy search.
+    query = "helo"
+    results = fuzzy_search(query, max_distance=1, word_list=words)
+    print("Fuzzy search results for 'helo':", results)
 
 if __name__ == "__main__":
     main()
