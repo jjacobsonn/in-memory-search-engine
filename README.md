@@ -3,17 +3,30 @@
 A high-performance search engine featuring trie-based autocomplete and fuzzy search (Levenshtein distance), exposed via a FastAPI service.
 
 ## Quick Start
-1. Install:  
+
+### Local Installation & Testing
+1. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   make install
    ```
-2. Test:  
+2. Run tests:
    ```bash
-   python -m unittest discover -s tests
+   make test
    ```
-3. Run:  
-   - Main app: `python src/main.py`  
-   - API server: `python -m uvicorn api.app:app`
+3. Run the main application or API server:
+   ```bash
+   make run
+   ```
+
+### Docker Usage
+1. Build the Docker image:
+   ```bash
+   make docker-build
+   ```
+2. Start the container:
+   ```bash
+   make docker-run
+   ```
 
 ## Architecture
 - **Core Engine:** Trie and fuzzy search algorithms.
