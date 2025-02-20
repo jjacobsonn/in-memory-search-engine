@@ -14,3 +14,7 @@
 ## Post-deployment
 - Gather feedback and monitor performance metrics.
 - Plan iterative improvements based on usage and performance.
+
+## Additional Resources
+- **GitHub Actions:** [View all workflows](https://github.com/jjacobsonn/in-memory-search-engine/actions)
+- **Releases:** [View all releases](https://github.com/jjacobsonn/in-memory-search-engine/releases)

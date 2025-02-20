@@ -4,6 +4,10 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100.0-green.svg)](https://fastapi.tiangolo.com/)
 [![Build Status](https://github.com/jjacobsonn/in-memory-search-engine/actions/workflows/test.yml/badge.svg)](https://github.com/jjacobsonn/in-memory-search-engine/actions)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/jjacobsonn/in-memory-search-engine.svg)](https://github.com/jjacobsonn/in-memory-search-engine/stargazers)
+[![Watchers](https://img.shields.io/github/watchers/jjacobsonn/in-memory-search-engine.svg)](https://github.com/jjacobsonn/in-memory-search-engine/watchers)
+[![Forks](https://img.shields.io/github/forks/jjacobsonn/in-memory-search-engine.svg)](https://github.com/jjacobsonn/in-memory-search-engine/network/members)
+[![Releases](https://img.shields.io/github/release/jjacobsonn/in-memory-search-engine.svg)](https://github.com/jjacobsonn/in-memory-search-engine/releases)
 
 A high-performance in-memory search engine using realistic search data inspired by daily software engineering tasks. The API provides both advanced autocomplete and fuzzy search endpoints, returning detailed metadata.
 
@@ -13,7 +17,7 @@ A high-performance in-memory search engine using realistic search data inspired 
 - **Detailed Metadata:** Execution time, algorithm used, and more.
 
 ## Live Demo
-Check out the live demo: [In-Memory Search Engine](https://in-memory-search-engine.onrender.com/)
+Check out the live demo: [In-Memory Search Engine](https://in-memory-search-engine.onrender.com/){:target="_blank"}
 
 ## Table of Contents
 - [Installation](#installation)
@@ -93,3 +97,7 @@ We welcome contributions! Please see our [Contributing Guide](docs/CONTRIBUTING.
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Additional Resources
+- **GitHub Actions:** [View all workflows](https://github.com/jjacobsonn/in-memory-search-engine/actions)
+- **Releases:** [View all releases](https://github.com/jjacobsonn/in-memory-search-engine/releases)

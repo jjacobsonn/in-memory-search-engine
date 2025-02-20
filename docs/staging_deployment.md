@@ -86,4 +86,6 @@ This automated process ensures that:
 - GitHub Actions handles deployment to your staging environment.
 - You can easily verify full API functionality on your staging server.
 
-Use this guide to streamline your deployment process and deliver a professional, production-ready open source project.
+## Additional Resources
+- **GitHub Actions:** [View all workflows](https://github.com/jjacobsonn/in-memory-search-engine/actions)
+- **Releases:** [View all releases](https://github.com/jjacobsonn/in-memory-search-engine/releases)
