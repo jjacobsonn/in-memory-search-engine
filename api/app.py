@@ -72,107 +72,111 @@ def fuzzy(
         raise HTTPException(status_code=404, detail="No near matches found")
     return {"results": results}
 
+# Updated landing page with a modern, animated, and professional feel.
 @app.get("/", response_class=HTMLResponse)
 def root():
     return """
     <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>In-Memory Search Engine</title>
-            <link rel="stylesheet" 
-              href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-            <style>
-                body {
-                    background-color: #ECEFF1;
-                    margin: 0;
-                    padding: 0;
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                }
-                .container {
-                    max-width: 800px;
-                    margin: 50px auto;
-                    background-color: #fff;
-                    border-radius: 10px;
-                    box-shadow: 0px 20px 40px rgba(0,0,0,0.1);
-                    overflow: hidden;
-                }
-                .header {
-                    background: #1976d2;
-                    color: #fff;
-                    padding: 20px;
-                    text-align: center;
-                }
-                .header img {
-                    height: 50px;
-                }
-                .header h1 {
-                    margin: 10px 0 0;
-                    font-size: 2.2em;
-                }
-                .content {
-                    padding: 30px;
-                    text-align: center;
-                }
-                .button {
-                    background: #1976d2;
-                    color: #fff;
-                    text-decoration: none;
-                    padding: 15px 30px;
-                    border-radius: 50px;
-                    margin: 20px;
-                    display: inline-block;
-                    transition: background 0.3s ease;
-                }
-                .button:hover {
-                    background: #1565c0;
-                }
-                .animated-button {
-                    animation: pulse 2s infinite;
-                }
-                @keyframes pulse {
-                    0% { transform: scale(1); }
-                    50% { transform: scale(1.05); }
-                    100% { transform: scale(1); }
-                }
-                .examples {
-                    display: flex;
-                    justify-content: space-around;
-                    flex-wrap: wrap;
-                    margin-top: 30px;
-                }
-                .example {
-                    background: #f2f2f2;
-                    border-radius: 10px;
-                    padding: 20px;
-                    width: 40%;
-                    margin: 10px;
-                }
-            </style>
-        </head>
-        <body>
-            <div class="container">
-                <div class="header">
-                    <img src="/static/logo.png" alt="Logo">
-                    <h1>In-Memory Search Engine</h1>
-                    <p>Your cutting-edge search solution</p>
+      <head>
+        <meta charset="UTF-8">
+        <title>In-Memory Search Engine</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <style>
+          body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #f1f1f1;
+          }
+          .container {
+            max-width: 900px;
+            margin: 80px auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.37);
+            backdrop-filter: blur(8px);
+            text-align: center;
+          }
+          .logo {
+            width: 80px;
+            margin-bottom: 20px;
+          }
+          h1 {
+            font-size: 2.8em;
+            margin-bottom: 0.2em;
+            animation: fadeInDown 1.5s;
+          }
+          p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #d1d1d1;
+          }
+          .button {
+            background-color: #ff9800;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            margin: 10px;
+          }
+          .button:hover {
+            background-color: #e68900;
+          }
+          .examples {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+          }
+          .example {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            width: 40%;
+            margin: 10px;
+            transition: transform 0.4s;
+          }
+          .example:hover {
+            transform: scale(1.05);
+          }
+          @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @media (max-width: 768px) {
+            .example { width: 80%; }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+            <!-- Optional logo; ensure /static/logo.png exists -->
+            <img src="/static/logo.png" alt="Logo" class="logo">
+            <h1 class="animate__animated animate__fadeInDown">In-Memory Search Engine</h1>
+            <p>Experience a blazing-fast search solution, built with modern technical standards and designed to impress.</p>
+            <a href="/docs" class="button animate__animated animate__pulse animate__infinite">API Documentation</a>
+            <div class="examples">
+                <div class="example animate__animated animate__fadeInLeft">
+                    <h3>Autocomplete</h3>
+                    <p>Example: <em>/autocomplete?prefix=commit</em></p>
+                    <a href="/autocomplete?prefix=commit" class="button">Try Autocomplete</a>
                 </div>
-                <div class="content">
-                    <a class="button animated-button" href="/docs">API Documentation</a>
-                    <div class="examples">
-                        <div class="example animate__animated animate__fadeInLeft">
-                            <h3>Autocomplete</h3>
-                            <p>Try: <em>/autocomplete?prefix=commit</em></p>
-                            <a class="button" href="/autocomplete?prefix=commit">Test Autocomplete</a>
-                        </div>
-                        <div class="example animate__animated animate__fadeInRight">
-                            <h3>Fuzzy Search</h3>
-                            <p>Try: <em>/fuzzy?query=cod%20revie&max_distance=2</em></p>
-                            <a class="button" href="/fuzzy?query=cod%20revie&max_distance=2">Test Fuzzy Search</a>
-                        </div>
-                    </div>
+                <div class="example animate__animated animate__fadeInRight">
+                    <h3>Fuzzy Search</h3>
+                    <p>Example: <em>/fuzzy?query=cod%20revie&max_distance=2</em></p>
+                    <a href="/fuzzy?query=cod%20revie&max_distance=2" class="button">Try Fuzzy Search</a>
                 </div>
             </div>
-        </body>
+        </div>
+      </body>
     </html>
     """
 
