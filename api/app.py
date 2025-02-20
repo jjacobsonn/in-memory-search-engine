@@ -106,6 +106,9 @@ def root():
             --accent-color: #ff9800;
             --border-color: #e0e0e0;
             --box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            --example-bg-color: #f0f8ff; /* Light blue background for better contrast */
+            --example-hover-bg-color: #e0f0ff; /* Slightly darker blue on hover */
+            --example-border-color: #007acc; /* Darker blue border */
           }
           body {
             margin: 0;
@@ -158,15 +161,16 @@ def root():
             margin-top: 2rem;
           }
           .example {
-            background: #f9f9f9;
-            border: 1px solid var(--border-color);
+            background: var(--example-bg-color);
+            border: 1px solid var(--example-border-color);
             border-radius: 0.5rem;
             padding: 1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
           }
           .example:hover {
             transform: translateY(-4px);
             box-shadow: var(--box-shadow);
+            background: var(--example-hover-bg-color);
           }
           .example h2 {
             margin-top: 0;
@@ -201,8 +205,8 @@ def root():
             margin-top: 2rem;
           }
           .example-set {
-            background: #f9f9f9;
-            border: 1px solid var(--border-color);
+            background: var(--example-bg-color);
+            border: 1px solid var(--example-border-color);
             border-radius: 0.5rem;
             padding: 1.5rem;
           }
@@ -216,7 +220,7 @@ def root():
             background: #fff;
             padding: 1rem;
             border-radius: 0.375rem;
-            border: 1px solid var (--border-color);
+            border: 1px solid var(--example-border-color);
           }
           .example-item h3 {
             margin-top: 0;
