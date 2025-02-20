@@ -5,6 +5,7 @@ from src.trie import Trie
 from src.fuzzy_search import fuzzy_search
 from src.init_data import load_demo_data, populate_trie
 import uvicorn
+from fastapi.responses import HTMLResponse
 
 app = FastAPI(
     title="In-Memory Search Engine API",
@@ -71,9 +72,26 @@ def fuzzy(
         raise HTTPException(status_code=404, detail="No near matches found")
     return {"results": results}
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 def root():
-    return {"detail": "Welcome to the In-Memory Search Engine!"}
+    return """
+    <html>
+        <head>
+            <title>In-Memory Search Engine</title>
+        </head>
+        <body style="font-family: Arial, sans-serif; margin: 40px;">
+            <h1 style="color: #2c3e50;">Welcome to the In-Memory Search Engine!</h1>
+            <p>Explore the <a href="/docs">API Docs</a> or try these examples:</p>
+            <ul>
+                <li><a href="/autocomplete?prefix=comm">Autocomplete Example</a></li>
+                <li><a href="/fuzzy?query=cod%20revie&max_distance=2">Fuzzy Example</a></li>
+            </ul>
+            <p style="font-style: italic;">
+                Impress interviewers by showing how quickly these endpoints respond with real search terms.
+            </p>
+        </body>
+    </html>
+    """
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
