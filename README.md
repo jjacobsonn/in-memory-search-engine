@@ -16,10 +16,6 @@ This project implements an efficient trie-based search engine with support for a
 2. Install dependencies (e.g., via `pip install -r requirements.txt` for Python).
 3. Run the project with `python src/main.py`.
 
-## How GitHub Copilot Can Assist
-- **Code Suggestions:** Inline comments guide Copilot to generate key functions (e.g., trie insertion and search).
-- **Refactoring Hints:** Well-structured modules help Copilot suggest improvements.
-
 ## Contributing
 Contributions are welcome. Please open issues or submit pull requests for improvements.
 
