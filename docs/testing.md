@@ -2,6 +2,12 @@
 
 This document provides instructions on how to run the tests for the In-Memory Search Engine project and details the tests that pass when run locally.
 
+
+<p align="center">
+   <img src="./images/img-2.png" alt="Screenshot of Makefile and pytest results" width="800" height="auto">
+</p>
+
+
 ## Running Tests
 
 ### Prerequisites

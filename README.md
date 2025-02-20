@@ -23,6 +23,11 @@ A high-performance in-memory search engine using realistic search data inspired 
 - **Detailed Metadata:** Execution time, algorithm used, and more.
 
 ## Live Demo
+
+<p align="center">
+   <img src="./docs/images/img-1.png" alt="Screenshot of Site Home Page" width="500" height="auto">
+</p>
+
 Check out the live demo: [In-Memory Search Engine](https://in-memory-search-engine.onrender.com/)
 
 ## Table of Contents
@@ -82,11 +87,17 @@ Access the API at `http://127.0.0.1:8000`.
    ```
 
 ## Testing
+
 Run the tests using `pytest`:
 ```bash
 pytest --maxfail=1 --disable-warnings -v
 ```
+
 For more details on test execution and coverage, refer to the [Testing Guide](docs/testing.md).
+
+<p align="center">
+   <img src="./docs/images/img-2.png" alt="Screenshot of Makefile and pytest results" width="600" height="auto">
+</p>
 
 ## Deployment
 Refer to the [Deployment Guide](docs/deployment.md) for detailed deployment instructions.
