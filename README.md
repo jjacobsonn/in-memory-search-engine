@@ -28,14 +28,17 @@ A high-performance search engine featuring trie-based autocomplete and fuzzy sea
    make docker-run
    ```
 
+## Documentation
+- [Deployment Guide](docs/deployment.md)
+- [Contributing Guide](docs/CONTRIBUTING.md)
+- [Advanced Features & Future Enhancements](docs/advanced_features.md)
+- [Swagger UI Usage Guide](docs/swagger_usage.md)
+- [Curl Usage Guide](docs/curl_usage.md)
+
 ## Architecture
 - **Core Engine:** Trie and fuzzy search algorithms.
 - **API Layer:** Real-time endpoints powered by FastAPI.
 - **Testing:** Unit and integration tests ensure reliability.
-
-## Deployment & Contributing
-- See [docs/deployment.md](docs/deployment.md) for deployment guidelines.
-- Review [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) for contribution instructions.
 
 ## License
 MIT License

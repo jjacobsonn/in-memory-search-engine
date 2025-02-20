@@ -1,7 +1,7 @@
 # Deployment Guide
 
 ## Pre-deployment
-- Ensure all tests pass: `python3 -m unittest discover -s tests`
+- Ensure all tests pass: `make test`
 - Review the CI/CD pipeline in .github/workflows/test.yml
 
 ## Deployment Steps

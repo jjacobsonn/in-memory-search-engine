@@ -2,8 +2,8 @@
 
 ## Getting Started
 - Ensure you run all tests (unit and integration):  
-  `python -m unittest discover -s tests`
-- Verify functionality via `python src/main.py` and API endpoints with `uvicorn api.app:app`.
+  `make test`
+- Verify functionality via `make run` and API endpoints with `uvicorn api.app:app`.
 
 ## How to Contribute
 - Fork the repository and create a new branch for your changes.
