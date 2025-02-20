@@ -79,36 +79,98 @@ def root():
         <head>
             <meta charset="UTF-8">
             <title>In-Memory Search Engine</title>
+            <link rel="stylesheet" 
+              href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
             <style>
-                body { font-family: "Helvetica Neue", Arial, sans-serif; background-color: #f5f5f5; margin: 0; padding: 0; }
-                .container { max-width: 800px; margin: 50px auto; background: #fff; padding: 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-                h1 { color: #2c3e50; }
-                p { line-height: 1.6; color: #555; }
-                a { color: #007acc; text-decoration: none; }
-                a:hover { text-decoration: underline; }
-                .button { display: inline-block; padding: 10px 20px; margin: 10px 0; background: #007acc; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; }
-                ul { list-style-type: none; padding: 0; }
-                li { margin: 8px 0; }
+                body {
+                    background-color: #ECEFF1;
+                    margin: 0;
+                    padding: 0;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                }
+                .container {
+                    max-width: 800px;
+                    margin: 50px auto;
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: 0px 20px 40px rgba(0,0,0,0.1);
+                    overflow: hidden;
+                }
+                .header {
+                    background: #1976d2;
+                    color: #fff;
+                    padding: 20px;
+                    text-align: center;
+                }
+                .header img {
+                    height: 50px;
+                }
+                .header h1 {
+                    margin: 10px 0 0;
+                    font-size: 2.2em;
+                }
+                .content {
+                    padding: 30px;
+                    text-align: center;
+                }
+                .button {
+                    background: #1976d2;
+                    color: #fff;
+                    text-decoration: none;
+                    padding: 15px 30px;
+                    border-radius: 50px;
+                    margin: 20px;
+                    display: inline-block;
+                    transition: background 0.3s ease;
+                }
+                .button:hover {
+                    background: #1565c0;
+                }
+                .animated-button {
+                    animation: pulse 2s infinite;
+                }
+                @keyframes pulse {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.05); }
+                    100% { transform: scale(1); }
+                }
+                .examples {
+                    display: flex;
+                    justify-content: space-around;
+                    flex-wrap: wrap;
+                    margin-top: 30px;
+                }
+                .example {
+                    background: #f2f2f2;
+                    border-radius: 10px;
+                    padding: 20px;
+                    width: 40%;
+                    margin: 10px;
+                }
             </style>
         </head>
         <body>
             <div class="container">
-                <h1>In-Memory Search Engine</h1>
-                <p>
-                    Welcome to a cutting-edge search engine designed for modern software engineering challenges.
-                    Explore our powerful autocomplete and fuzzy search APIs, built for high-performance scenarios.
-                </p>
-                <p>
-                    <a class="button" href="/docs">View API Documentation</a>
-                </p>
-                <h2>Try It Out</h2>
-                <ul>
-                    <li><a href="/autocomplete?prefix=commit">Autocomplete Example</a></li>
-                    <li><a href="/fuzzy?query=cod%20revie&max_distance=2">Fuzzy Search Example</a></li>
-                </ul>
-                <p>
-                    Discover how seamlessly our endpoints respond with real search terms and elevate your projects with innovative search capabilities.
-                </p>
+                <div class="header">
+                    <img src="/static/logo.png" alt="Logo">
+                    <h1>In-Memory Search Engine</h1>
+                    <p>Your cutting-edge search solution</p>
+                </div>
+                <div class="content">
+                    <a class="button animated-button" href="/docs">API Documentation</a>
+                    <div class="examples">
+                        <div class="example animate__animated animate__fadeInLeft">
+                            <h3>Autocomplete</h3>
+                            <p>Try: <em>/autocomplete?prefix=commit</em></p>
+                            <a class="button" href="/autocomplete?prefix=commit">Test Autocomplete</a>
+                        </div>
+                        <div class="example animate__animated animate__fadeInRight">
+                            <h3>Fuzzy Search</h3>
+                            <p>Try: <em>/fuzzy?query=cod%20revie&max_distance=2</em></p>
+                            <a class="button" href="/fuzzy?query=cod%20revie&max_distance=2">Test Fuzzy Search</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </body>
     </html>
