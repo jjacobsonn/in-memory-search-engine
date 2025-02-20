@@ -83,6 +83,7 @@ Run the tests using `pytest`:
 ```bash
 pytest --maxfail=1 --disable-warnings -v
 ```
+Refer to the [Testing Guide](docs/testing.md) for more details on running and understanding the tests.
 
 ## Deployment
 Refer to the [Deployment Guide](docs/deployment.md) for detailed deployment instructions.
