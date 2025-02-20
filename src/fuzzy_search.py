@@ -8,6 +8,8 @@ Functions:
     fuzzy_search(query, max_distance): Returns words that are within max_distance from the query.
 """
 
+from Levenshtein import distance
+
 def levenshtein(s1, s2):
     # Compute Levenshtein distance using dynamic programming
     m, n = len(s1), len(s2)
@@ -33,12 +35,21 @@ try:
 except ImportError:
     calc_distance = levenshtein
 
-def fuzzy_search(query, max_distance=2, word_list=None):
-    # If no word_list is provided, assume calling context supplies words
-    if word_list is None:
-        return []  # or raise an error; depends on design
-    results = []
-    for word in word_list:
-        if calc_distance(query, word) <= max_distance:
-            results.append(word)
-    return results
+def fuzzy_search(query: str, max_distance: int, words: list) -> list:
+    """
+    Perform fuzzy search using Levenshtein distance.
+    Returns a list of tuples (word, similarity_score).
+    Score is calculated as 1 - (distance / max(len(query), len(word))).
+    """
+    matches = []
+    for word in words:
+        dist = distance(query.lower(), word.lower())
+        if dist <= max_distance:
+            # Calculate similarity score (1 is perfect match, 0 is completely different)
+            max_len = max(len(query), len(word))
+            similarity = 1 - (dist / max_len)
+            matches.append((word, similarity))
+    
+    # Sort by similarity score (highest first)
+    matches.sort(key=lambda x: x[1], reverse=True)
+    return matches
