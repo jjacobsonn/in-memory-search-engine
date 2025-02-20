@@ -20,7 +20,7 @@ A high-performance in-memory search engine using realistic search data inspired 
 - **Detailed Metadata:** Execution time, algorithm used, and more.
 
 ## Live Demo
-Check out the live demo: [In-Memory Search Engine](https://in-memory-search-engine.onrender.com/){:target="_blank"}
+Check out the live demo: [In-Memory Search Engine](https://in-memory-search-engine.onrender.com/)
 
 ## Table of Contents
 - [Installation](#installation)
