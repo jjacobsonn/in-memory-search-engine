@@ -26,12 +26,19 @@ def levenshtein(s1, s2):
                                    dp[i-1][j-1])  # Substitution
     return dp[m][n]
 
+# Try to import the fast python-Levenshtein module.
+try:
+    import Levenshtein
+    calc_distance = Levenshtein.distance
+except ImportError:
+    calc_distance = levenshtein
+
 def fuzzy_search(query, max_distance=2, word_list=None):
     # If no word_list is provided, assume calling context supplies words
     if word_list is None:
         return []  # or raise an error; depends on design
     results = []
     for word in word_list:
-        if levenshtein(query, word) <= max_distance:
+        if calc_distance(query, word) <= max_distance:
             results.append(word)
     return results
