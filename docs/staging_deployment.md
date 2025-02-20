@@ -3,21 +3,21 @@
 This guide explains how to automatically deploy your In-Memory Search Engine API to a staging environment using Docker and GitHub Actions.
 
 ## Prerequisites
-- A Docker Hub (or similar) account.
+- A Docker Hub account.
 - A staging server with Docker and Docker Compose installed.
-- SSH access and environment variables set up on the staging server.
+- SSH access and proper environment variables set on the staging server.
 - GitHub Actions configured for CI/CD in your repository.
 
 ## Step 1: Build & Tag the Docker Image
 Build the Docker image with a staging tag:
 ```bash
-docker build -t yourdockerhubusername/in-memory-search-engine:staging .
+docker build -t jjacobsonn/in-memory-search-engine:staging .
 ```
 
 ## Step 2: Push the Image to Docker Hub
 Log in to Docker Hub and push the image:
 ```bash
-docker push yourdockerhubusername/in-memory-search-engine:staging
+docker push jjacobsonn/in-memory-search-engine:staging
 ```
 
 ## Step 3: Configure Staging Deployment via GitHub Actions
@@ -43,9 +43,9 @@ jobs:
       - uses: actions/checkout@v3
       - name: Build and push Docker image
         run: |
-          docker build -t yourdockerhubusername/in-memory-search-engine:staging .
+          docker build -t jjacobsonn/in-memory-search-engine:staging .
           echo "$DOCKERHUB_PASSWORD" | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
-          docker push yourdockerhubusername/in-memory-search-engine:staging
+          docker push jjacobsonn/in-memory-search-engine:staging
       - name: Deploy to staging server
         uses: appleboy/ssh-action@v0.1.7
         with:
@@ -70,7 +70,7 @@ After deploying, verify that the staging URL (e.g., `https://staging.example.com
 ## Summary
 This automated process ensures that:
 - Your project is built, tagged, and pushed using Docker.
-- GitHub Actions takes care of deploying to your staging environment.
-- You can easily verify the full API functionality on your staging server.
+- GitHub Actions handles deployment to your staging environment.
+- You can easily verify full API functionality on your staging server.
 
-Use this guide to streamline your deployment process and bring your project production-ready in a professional, open source manner.
+Use this guide to streamline your deployment process and deliver a professional, production-ready open source project.
