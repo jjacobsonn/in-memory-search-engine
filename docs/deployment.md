@@ -2,7 +2,7 @@
 
 ## Pre-deployment
 - Ensure all tests pass: `python3 -m unittest discover -s tests`
-- Review CI/CD pipeline in .github/workflows/test.yml
+- Review the CI/CD pipeline in .github/workflows/test.yml
 
 ## Deployment Steps
 1. Commit and push changes to the remote repository.

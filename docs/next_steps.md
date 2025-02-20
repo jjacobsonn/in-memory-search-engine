@@ -13,9 +13,14 @@
    ```
    python src/main.py
    ```
+4. Start the API server and run integration tests:
+   ```
+   python -m uvicorn api.app:app
+   python -m unittest discover -s tests
+   ```
 
 ## Future Enhancements
-- Integrate CI/CD (e.g., GitHub Actions) for automated testing.
-- Perform code review and refactoring as needed.
-- Add more unit tests and benchmarks.
-- Explore additional features such as advanced error handling and logging.
+- Integrate CI/CD for automated testing and deployment.
+- Expand integration test coverage for API endpoints.
+- Add performance benchmarks and stress tests.
+- Enhance error handling, logging, and security measures.
