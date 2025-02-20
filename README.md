@@ -24,7 +24,7 @@ A high-performance in-memory search engine using realistic search data inspired 
 
 ## Live Demo
 
-<p align="center">
+<p>
    <img src="./docs/images/img-1.png" alt="Screenshot of Site Home Page" width="500" height="auto">
 </p>
 
@@ -95,7 +95,7 @@ pytest --maxfail=1 --disable-warnings -v
 
 For more details on test execution and coverage, refer to the [Testing Guide](docs/testing.md).
 
-<p align="center">
+<p>
    <img src="./docs/images/img-2.png" alt="Screenshot of Makefile and pytest results" width="600" height="auto">
 </p>
 
