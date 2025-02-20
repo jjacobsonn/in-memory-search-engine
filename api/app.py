@@ -1,3 +1,4 @@
+import time
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel, Field
 from typing import List
@@ -11,25 +12,36 @@ app = FastAPI(
     title="In-Memory Search Engine API",
     description=(
         "A high-performance in-memory search engine using realistic search data inspired by daily "
-        "software engineering tasks. The API provides both autocomplete and fuzzy search endpoints."
+        "software engineering tasks. The API provides both advanced autocomplete and fuzzy search endpoints, "
+        "returning detailed metadata."
     ),
     version="0.1.0"
 )
 
-# Response Model
-class SearchResponse(BaseModel):
-    results: List[str] = Field(
-        ...,
-        example=["commit", "code review", "CI/CD"],
-        description="A list of matched search terms based on the query."
-    )
+# Response Models with extended metadata
+class AutocompleteResponse(BaseModel):
+    query: str
+    results: List[str]
+    execution_time_ms: float = Field(..., description="Execution time in milliseconds")
+    algorithm: str = Field("Trie Search", description="Search algorithm used")
+    cache_used: bool = Field(False, description="Was the result served from cache?")
+
+class FuzzyMatch(BaseModel):
+    term: str
+    score: float = Field(..., description="Similarity score (0-1) between query and term")
+
+class FuzzyResponse(BaseModel):
+    query: str
+    results: List[FuzzyMatch]
+    execution_time_ms: float = Field(..., description="Execution time in milliseconds")
+    algorithm: str = Field("Levenshtein Distance", description="Search algorithm used")
 
 # Initialize trie with demo data
 trie = Trie()
 demo_words = load_demo_data("./data/demo_data.json")
 populate_trie(trie, demo_words)
 
-@app.get("/autocomplete", response_model=SearchResponse, summary="Advanced Autocomplete Search")
+@app.get("/autocomplete", response_model=AutocompleteResponse, summary="Advanced Autocomplete Search")
 def autocomplete(
     prefix: str = Query(
         ...,
@@ -37,12 +49,18 @@ def autocomplete(
         description="A realistic prefix, e.g., 'co' might match 'commit', 'code review', etc."
     )
 ):
+    start_time = time.time()
     results = trie.search(prefix)
     if not results:
         raise HTTPException(status_code=404, detail="No matches found")
-    return {"results": results}
+    execution_time = (time.time() - start_time) * 1000  # Convert to ms
+    return AutocompleteResponse(
+        query=prefix,
+        results=results,
+        execution_time_ms=round(execution_time, 2)
+    )
 
-@app.get("/fuzzy", response_model=SearchResponse, summary="Advanced Fuzzy Search")
+@app.get("/fuzzy", response_model=FuzzyResponse, summary="Advanced Fuzzy Search")
 def fuzzy(
     query: str = Query(
         ...,
@@ -57,10 +75,18 @@ def fuzzy(
         description="Maximum allowed edit distance for fuzzy matching."
     )
 ):
-    results = fuzzy_search(query, max_distance, demo_words)
-    if not results:
+    start_time = time.time()
+    # Assume fuzzy_search returns a list of tuples: (word, score)
+    fuzzy_results = fuzzy_search(query, max_distance, demo_words)
+    if not fuzzy_results:
         raise HTTPException(status_code=404, detail="No near matches found")
-    return {"results": results}
+    execution_time = (time.time() - start_time) * 1000
+    matches = [FuzzyMatch(term=term, score=round(score, 2)) for term, score in fuzzy_results]
+    return FuzzyResponse(
+        query=query,
+        results=matches,
+        execution_time_ms=round(execution_time, 2)
+    )
 
 # Professional, modern landing page using semantic HTML and lightweight design.
 @app.get("/", response_class=HTMLResponse)
