@@ -2,8 +2,8 @@
 
 ## Getting Started
 - Ensure you run all tests (unit and integration):  
-  `make test`
-- Verify functionality via `make run` and API endpoints with `uvicorn api.app:app`.
+  `pytest --maxfail=1 --disable-warnings -v`
+- Verify functionality via `uvicorn api.app:app --host 0.0.0.0 --port 8000`.
 
 ## How to Contribute
 - Fork the repository and create a new branch for your changes.

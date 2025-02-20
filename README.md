@@ -1,44 +1,95 @@
 # In-Memory Search Engine
 
-A high-performance search engine featuring trie-based autocomplete and fuzzy search (Levenshtein distance), exposed via a FastAPI service.
+[![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.100.0-green.svg)](https://fastapi.tiangolo.com/)
+[![Build Status](https://github.com/jjacobsonn/in-memory-search-engine/actions/workflows/test.yml/badge.svg)](https://github.com/jjacobsonn/in-memory-search-engine/actions)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-## Quick Start
+A high-performance in-memory search engine using realistic search data inspired by daily software engineering tasks. The API provides both advanced autocomplete and fuzzy search endpoints, returning detailed metadata.
 
-### Local Installation & Testing
-1. Install dependencies:
+## Features
+- **Autocomplete Search:** Fast prefix-based search using a Trie data structure.
+- **Fuzzy Search:** Typo-tolerant search using Levenshtein distance.
+- **Detailed Metadata:** Execution time, algorithm used, and more.
+
+## Live Demo
+Check out the live demo: [In-Memory Search Engine](https://in-memory-search-engine.onrender.com/)
+
+## Table of Contents
+- [Installation](#installation)
+- [Running the Application](#running-the-application)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [Documentation](#documentation)
+
+## Installation
+1. **Clone the repository:**
    ```bash
-   make install
-   ```
-2. Run tests:
-   ```bash
-   make test
-   ```
-3. Run the main application or API server:
-   ```bash
-   make run
+   git clone https://github.com/jjacobsonn/in-memory-search-engine.git
+   cd in-memory-search-engine
    ```
 
-### Docker Usage
-1. Build the Docker image:
+2. **Create and activate a virtual environment:**
    ```bash
-   make docker-build
+   python3 -m venv env
+   source env/bin/activate
    ```
-2. Start the container:
+
+3. **Install dependencies:**
    ```bash
-   make docker-run
+   pip install -r requirements.txt
    ```
+
+## Running the Application
+### Using Uvicorn
+Run the application locally using Uvicorn:
+```bash
+uvicorn api.app:app --host 0.0.0.0 --port 8000
+```
+Access the API at `http://127.0.0.1:8000`.
+
+### Using Docker
+1. **Build the Docker image:**
+   ```bash
+   docker build -t in-memory-search-engine .
+   ```
+
+2. **Run the Docker container:**
+   ```bash
+   docker run -p 8000:8000 in-memory-search-engine
+   ```
+
+### Using Docker Compose
+1. **Start the services:**
+   ```bash
+   docker-compose up --build
+   ```
+
+2. **Stop the services:**
+   ```bash
+   docker-compose down
+   ```
+
+## Testing
+Run the tests using `pytest`:
+```bash
+pytest --maxfail=1 --disable-warnings -v
+```
+
+## Deployment
+Refer to the [Deployment Guide](docs/deployment.md) for detailed deployment instructions.
+
+## Contributing
+We welcome contributions! Please see our [Contributing Guide](docs/CONTRIBUTING.md) for more details.
 
 ## Documentation
-- [Deployment Guide](docs/deployment.md)
-- [Contributing Guide](docs/CONTRIBUTING.md)
-- [Advanced Features & Future Enhancements](docs/advanced_features.md)
-- [Swagger UI Usage Guide](docs/swagger_usage.md)
 - [Curl Usage Guide](docs/curl_usage.md)
-
-## Architecture
-- **Core Engine:** Trie and fuzzy search algorithms.
-- **API Layer:** Real-time endpoints powered by FastAPI.
-- **Testing:** Unit and integration tests ensure reliability.
+- [Advanced Features](docs/advanced_features.md)
+- [System Overview](docs/system_overview.md)
+- [Running the Application](docs/running.md)
+- [Staging Deployment](docs/staging_deployment.md)
+- [Swagger Usage](docs/swagger_usage.md)
 
 ## License
-MIT License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
