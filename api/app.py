@@ -77,3 +77,18 @@ def fuzzy(
 
     This endpoint returns a list of words that are near-matches to the provided query string. It uses a dynamic
     programming implementation of the Levenshtein distance algorithm, with a fast fallback when available. This feature
+    supports robust typo correction and approximate matching.
+
+    Example:
+    - Request: /fuzzy?query=helo&max_distance=2
+    - Response: { "results": ["hello", "help"] }
+
+    Use this endpoint to build user interfaces that can suggest corrections for misspelled terms.
+    """
+    results = fuzzy_search(query, max_distance, words)
+    if not results:
+        raise HTTPException(status_code=404, detail="No near matches found")
+    return {"results": results}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
