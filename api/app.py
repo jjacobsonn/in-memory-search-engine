@@ -193,6 +193,7 @@ def root():
             padding: 1rem;
             font-size: 0.875rem;
             color: #777;
+            padding-bottom: 2rem; /* Add space at the bottom */
           }
           @media (max-width: 640px) {
             section.examples {
