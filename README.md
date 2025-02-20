@@ -1,25 +1,40 @@
 # In-Memory Search Engine
 
-This project implements an efficient trie-based search engine with support for autocomplete and fuzzy search. It is designed for rapid lookups and correction of typos.
+This project implements an efficient, in-memory search engine featuring:
+- **Trie-based Autocomplete:** Offers fast prefix lookup.
+- **Fuzzy Search:** Uses Levenshtein distance (with an accelerated C-based fallback if available) to handle typos and provide near-match suggestions.
 
 ## Features
-- **Trie-Based Indexing:** Fast insertion and lookup for autocomplete.
-- **Fuzzy Search:** Uses techniques like Levenshtein distance to handle typos.
-- **Efficient Memory Use:** Optimized for performance in memory-sensitive applications.
-
-## Repository Structure
-- **src/**: Contains the core implementation (trie and fuzzy search logic).
-- **tests/**: Unit and integration tests to ensure correctness.
+- Fast, memory-efficient search using a trie data structure.
+- Robust fuzzy search to correct minor misspellings.
+- Easy-to-run tests and a main application demonstrating core functionality.
 
 ## Getting Started
-1. Clone the repository.
-2. Install dependencies (e.g., via `pip install -r requirements.txt` for Python).
-3. Run the project with `python src/main.py`.
 
-## Next Steps
-- Run unit tests: `python -m unittest discover -s tests`
-- Verify output from `src/main.py`
-- Commit and push changes once confirmed
+### Installation
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Ensure you are using Python 3 (use `python3` if needed).
+
+### Running the Application
+Run the main application:
+   ```bash
+   python3 src/main.py
+   ```
+
+### Running Tests
+Validate functionality with unit tests:
+   ```bash
+   python3 -m unittest discover -s tests
+   ```
+
+## Documentation
+- [Design Document](docs/design.md): Overview of the system architecture.
+- [Running Instructions](docs/running.md): Detailed steps to run and test the project.
+- [Next Steps](docs/next_steps.md): Future improvements and roadmap.
+- [Contributing](docs/CONTRIBUTING.md): Guidelines for contributing to the project.
 
 ## License
 This project is licensed under the MIT License.
