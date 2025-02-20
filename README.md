@@ -1,40 +1,28 @@
 # In-Memory Search Engine
 
-This project implements an efficient, in-memory search engine featuring:
-- **Trie-based Autocomplete:** Offers fast prefix lookup.
-- **Fuzzy Search:** Uses Levenshtein distance (with an accelerated C-based fallback if available) to handle typos and provide near-match suggestions.
+A high-performance search engine featuring trie-based autocomplete and fuzzy search (Levenshtein distance), exposed via a FastAPI service.
 
-## Features
-- Fast, memory-efficient search using a trie data structure.
-- Robust fuzzy search to correct minor misspellings.
-- Easy-to-run tests and a main application demonstrating core functionality.
-
-## Getting Started
-
-### Installation
-1. Install dependencies:
+## Quick Start
+1. Install:  
    ```bash
    pip install -r requirements.txt
    ```
-2. Ensure you are using Python 3 (use `python3` if needed).
-
-### Running the Application
-Run the main application:
+2. Test:  
    ```bash
-   python3 src/main.py
+   python -m unittest discover -s tests
    ```
+3. Run:  
+   - Main app: `python src/main.py`  
+   - API server: `python -m uvicorn api.app:app`
 
-### Running Tests
-Validate functionality with unit tests:
-   ```bash
-   python3 -m unittest discover -s tests
-   ```
+## Architecture
+- **Core Engine:** Trie and fuzzy search algorithms.
+- **API Layer:** Real-time endpoints powered by FastAPI.
+- **Testing:** Unit and integration tests ensure reliability.
 
-## Documentation
-- [Design Document](docs/design.md): Overview of the system architecture.
-- [Running Instructions](docs/running.md): Detailed steps to run and test the project.
-- [Next Steps](docs/next_steps.md): Future improvements and roadmap.
-- [Contributing](docs/CONTRIBUTING.md): Guidelines for contributing to the project.
+## Deployment & Contributing
+- See [docs/deployment.md](docs/deployment.md) for deployment guidelines.
+- Review [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) for contribution instructions.
 
 ## License
-This project is licensed under the MIT License.
+MIT License
