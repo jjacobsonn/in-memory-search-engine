@@ -12,7 +12,7 @@ test:
 	nohup python3 -m uvicorn api.app:app --host 127.0.0.1 --port 8000 > /dev/null 2>&1 &
 	@sleep 5
 	@echo "Running tests..."
-	python3 -m unittest discover -s tests
+	pytest --maxfail=1 --disable-warnings -v
 	@echo "Killing API server..."
 	@pkill -f "uvicorn"
 
