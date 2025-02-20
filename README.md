@@ -16,8 +16,5 @@ This project implements an efficient trie-based search engine with support for a
 2. Install dependencies (e.g., via `pip install -r requirements.txt` for Python).
 3. Run the project with `python src/main.py`.
 
-## Contributing
-Contributions are welcome. Please open issues or submit pull requests for improvements.
-
 ## License
 This project is licensed under the MIT License.
