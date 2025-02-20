@@ -25,16 +25,54 @@ The In-Memory Search Engine API provides an auto-generated Swagger UI, which mak
   - Fill in parameter fields with examples (or your own test values). For example, try entering `"co"` for the prefix in the `/autocomplete` endpoint.
   - Click the **Execute** button to send a request.
 
-- **Inspect Responses:**  
-  View the HTTP status codes, response body, and response headers directly within the UI. This helps you verify that:
-  - The response status code matches your expectations.
-  - The returned JSON structure (such as a list of search results) is correct.
+## Example Tests
 
-- **Auto-generated Documentation Details:**  
-  The Swagger UI displays:
-  - Endpoint summaries and detailed descriptions.
-  - Parameters (with examples and descriptions). For instance, the `prefix` parameter on `/autocomplete` is documented with an example like `"co"`.
-  - Expected response models and example responses based on your Pydantic models.
+### Autocomplete Endpoint
+
+**Description:** Returns a list of search terms that begin with the provided prefix based on realistic demo data.
+
+**Example Request:**
+```bash
+curl -X 'GET' \
+  'http://127.0.0.1:8000/autocomplete?prefix=co' \
+  -H 'accept: application/json'
+```
+
+**Expected Response:**
+- **HTTP Status Code:** 200 if matches are found, or 404 if no data exists for the given prefix.
+- **Response Body (Sample):**
+  ```json
+  {
+    "results": ["commit", "code review", "container"]
+  }
+  ```
+  If no matches exist, you should see:
+  ```json
+  {
+    "detail": "No matches found"
+  }
+  ```
+
+### Fuzzy Search Endpoint
+
+**Description:** Returns near-matching search terms for typos in the query string using a Levenshtein algorithm.
+
+**Example Request:**
+```bash
+curl -X 'GET' \
+  'http://127.0.0.1:8000/fuzzy?query=cod%20revie&max_distance=2' \
+  -H 'accept: application/json'
+```
+
+**Expected Response:**
+- **HTTP Status Code:** 200 if near-matches are found, or 404 if no near matches found.
+- **Response Body (Sample):**
+  ```json
+  {
+    "results": ["code review"]
+  }
+  ```
+  Otherwise, a 404 response with an appropriate error message.
 
 ## Benefits
 

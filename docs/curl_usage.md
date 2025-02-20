@@ -10,14 +10,14 @@ This guide provides example curl commands to test the deployed API endpoints and
 
 Run the following command to test the autocomplete endpoint:
 ```bash
-curl -i "https://staging.example.com/autocomplete?prefix=de"
+curl -i "https://staging.example.com/autocomplete?prefix=co"
 ```
 **Expected outcome:**
 - **HTTP Status Code:** 200 if matches are found, or 404 if no data exists for the given prefix.
 - **Response Body (Sample):**
   ```json
   {
-    "results": ["debug", "deployment"]
+    "results": ["commit", "code review", "container"]
   }
   ```
   If no matches exist, you should see:
