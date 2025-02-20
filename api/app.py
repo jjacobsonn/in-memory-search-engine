@@ -77,18 +77,39 @@ def root():
     return """
     <html>
         <head>
+            <meta charset="UTF-8">
             <title>In-Memory Search Engine</title>
+            <style>
+                body { font-family: "Helvetica Neue", Arial, sans-serif; background-color: #f5f5f5; margin: 0; padding: 0; }
+                .container { max-width: 800px; margin: 50px auto; background: #fff; padding: 40px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+                h1 { color: #2c3e50; }
+                p { line-height: 1.6; color: #555; }
+                a { color: #007acc; text-decoration: none; }
+                a:hover { text-decoration: underline; }
+                .button { display: inline-block; padding: 10px 20px; margin: 10px 0; background: #007acc; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; }
+                ul { list-style-type: none; padding: 0; }
+                li { margin: 8px 0; }
+            </style>
         </head>
-        <body style="font-family: Arial, sans-serif; margin: 40px;">
-            <h1 style="color: #2c3e50;">Welcome to the In-Memory Search Engine!</h1>
-            <p>Explore the <a href="/docs">API Docs</a> or try these examples:</p>
-            <ul>
-                <li><a href="/autocomplete?prefix=comm">Autocomplete Example</a></li>
-                <li><a href="/fuzzy?query=cod%20revie&max_distance=2">Fuzzy Example</a></li>
-            </ul>
-            <p style="font-style: italic;">
-                Impress interviewers by showing how quickly these endpoints respond with real search terms.
-            </p>
+        <body>
+            <div class="container">
+                <h1>In-Memory Search Engine</h1>
+                <p>
+                    Welcome to a cutting-edge search engine designed for modern software engineering challenges.
+                    Explore our powerful autocomplete and fuzzy search APIs, built for high-performance scenarios.
+                </p>
+                <p>
+                    <a class="button" href="/docs">View API Documentation</a>
+                </p>
+                <h2>Try It Out</h2>
+                <ul>
+                    <li><a href="/autocomplete?prefix=commit">Autocomplete Example</a></li>
+                    <li><a href="/fuzzy?query=cod%20revie&max_distance=2">Fuzzy Search Example</a></li>
+                </ul>
+                <p>
+                    Discover how seamlessly our endpoints respond with real search terms and elevate your projects with innovative search capabilities.
+                </p>
+            </div>
         </body>
     </html>
     """
