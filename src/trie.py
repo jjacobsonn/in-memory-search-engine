@@ -20,9 +20,30 @@ class Trie:
         self.root = TrieNode()
 
     def insert(self, word):
-        # TODO: Insert the word into the trie.
-        pass
+        # Insert each character; create new node if necessary
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                node.children[char] = TrieNode()
+            node = node.children[char]
+        node.is_end_of_word = True
 
     def search(self, prefix):
-        # TODO: Return a list of words that match the prefix.
-        pass
+        # Traverse to end of prefix
+        node = self.root
+        for char in prefix:
+            if char not in node.children:
+                return []  # Prefix not in trie
+            node = node.children[char]
+        results = []
+
+        def dfs(current, path):
+            # If word end, add to results
+            if current.is_end_of_word:
+                results.append(path)
+            # Traverse children recursively
+            for ch, child in current.children.items():
+                dfs(child, path + ch)
+
+        dfs(node, prefix)
+        return results
