@@ -62,103 +62,130 @@ def fuzzy(
         raise HTTPException(status_code=404, detail="No near matches found")
     return {"results": results}
 
-# Updated landing page with minimal, professional styling and styled endpoint examples.
+# Professional, modern landing page using semantic HTML and lightweight design.
 @app.get("/", response_class=HTMLResponse)
 def root():
     return """
-    <html>
+    <html lang="en">
       <head>
         <meta charset="UTF-8">
         <title>In-Memory Search Engine</title>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
         <style>
           body {
             margin: 0;
             padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #fafafa;
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
             color: #333;
           }
-          .container {
-            max-width: 900px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 40px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-          }
-          .header {
+          header {
+            background-color: #0a74da;
+            color: #fff;
+            padding: 2rem 0;
             text-align: center;
-            margin-bottom: 30px;
           }
-          .header img {
-            max-width: 100px;
-            margin-bottom: 10px;
-          }
-          h1 {
-            font-size: 2.2em;
+          header h1 {
             margin: 0;
+            font-size: 2.5rem;
+          }
+          header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.125rem;
+          }
+          main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+          }
+          .cta {
+            text-align: center;
+            margin: 2rem 0;
           }
           .button {
-            background-color: #007acc;
+            background-color: #0a74da;
             color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
             text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s;
             display: inline-block;
-            margin: 10px 0;
           }
-          .examples {
-            margin-top: 30px;
+          .button:hover {
+            background-color: #075ea8;
+          }
+          section.examples {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
           }
           .example {
             background-color: #f5f5f5;
-            border-radius: 4px;
-            padding: 15px;
-            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 0.5rem;
+            padding: 1rem;
           }
-          .example h3 {
+          .example h2 {
             margin-top: 0;
-            font-size: 1.2em;
+            font-size: 1.25rem;
+            font-weight: 600;
           }
           .code-block {
-            background-color: #eee;
-            color: #c7254e;
-            padding: 5px 10px;
-            border-radius: 4px;
+            display: block;
+            background-color: #e8e8e8;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
             font-family: monospace;
-            font-size: 0.9em;
+            font-size: 0.875rem;
             overflow-x: auto;
-            display: inline-block;
+            margin: 0.5rem 0;
+          }
+          footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.875rem;
+            color: #777;
+          }
+          @media (max-width: 640px) {
+            section.examples {
+              grid-template-columns: 1fr;
+            }
           }
         </style>
       </head>
       <body>
-        <div class="container">
-          <div class="header">
-            <img src="https://via.placeholder.com/100?text=Logo" alt="Logo">
-            <h1>In-Memory Search Engine</h1>
-            <p>A cutting-edge search solution designed for modern software engineering challenges.</p>
+        <header>
+          <h1>In-Memory Search Engine</h1>
+          <p>Efficient. Dynamic. Innovative.</p>
+        </header>
+        <main>
+          <div class="cta">
+            <a href="/docs" class="button">View API Documentation</a>
           </div>
-          <div style="text-align: center;">
-            <a class="button" href="/docs">View API Documentation</a>
-          </div>
-          <div class="examples">
+          <section class="examples">
             <div class="example">
-              <h3>Autocomplete Example</h3>
-              <p>Endpoint:</p>
-              <pre class="code-block">/autocomplete?prefix=commit</pre>
-              <a class="button" href="/autocomplete?prefix=commit">Test Autocomplete</a>
+              <h2>Autocomplete Example</h2>
+              <p>Try the following:</p>
+              <code class="code-block">/autocomplete?prefix=commit</code>
+              <div style="text-align:center; margin-top: 1rem;">
+                <a href="/autocomplete?prefix=commit" class="button">Test Autocomplete</a>
+              </div>
             </div>
             <div class="example">
-              <h3>Fuzzy Search Example</h3>
-              <p>Endpoint:</p>
-              <pre class="code-block">/fuzzy?query=cod%20revie&amp;max_distance=2</pre>
-              <a class="button" href="/fuzzy?query=cod%20revie&amp;max_distance=2">Test Fuzzy Search</a>
+              <h2>Fuzzy Search Example</h2>
+              <p>Try the following:</p>
+              <code class="code-block">/fuzzy?query=cod%20revie&amp;max_distance=2</code>
+              <div style="text-align:center; margin-top: 1rem;">
+                <a href="/fuzzy?query=cod%20revie&amp;max_distance=2" class="button">Test Fuzzy Search</a>
+              </div>
             </div>
-          </div>
-        </div>
+          </section>
+        </main>
+        <footer>
+          &copy; 2025 In-Memory Search Engine. All rights reserved.
+        </footer>
       </body>
     </html>
     """
