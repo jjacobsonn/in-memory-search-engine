@@ -72,15 +72,24 @@ def root():
         <title>In-Memory Search Engine</title>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
         <style>
+          :root {
+            --primary-color: #0a74da;
+            --primary-hover: #075ea8;
+            --bg-color: #ffffff;
+            --text-color: #333;
+            --accent-color: #ff9800;
+            --border-color: #e0e0e0;
+            --box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          }
           body {
             margin: 0;
             padding: 0;
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
           }
           header {
-            background-color: #0a74da;
+            background: var(--primary-color);
             color: #fff;
             padding: 2rem 0;
             text-align: center;
@@ -103,17 +112,18 @@ def root():
             margin: 2rem 0;
           }
           .button {
-            background-color: #0a74da;
+            background: var(--primary-color);
             color: #fff;
             padding: 0.75rem 1.5rem;
             border-radius: 0.375rem;
             text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
             display: inline-block;
           }
           .button:hover {
-            background-color: #075ea8;
+            background: var(--primary-hover);
+            transform: translateY(-2px);
           }
           section.examples {
             display: grid;
@@ -122,10 +132,15 @@ def root():
             margin-top: 2rem;
           }
           .example {
-            background-color: #f5f5f5;
-            border: 1px solid #e0e0e0;
+            background: #f9f9f9;
+            border: 1px solid var(--border-color);
             border-radius: 0.5rem;
             padding: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+          }
+          .example:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--box-shadow);
           }
           .example h2 {
             margin-top: 0;
@@ -134,7 +149,7 @@ def root():
           }
           .code-block {
             display: block;
-            background-color: #e8e8e8;
+            background: #f0f0f0;
             padding: 0.5rem;
             border-radius: 0.375rem;
             font-family: monospace;
@@ -166,17 +181,17 @@ def root():
           </div>
           <section class="examples">
             <div class="example">
-              <h2>Autocomplete Example</h2>
-              <p>Try the following:</p>
-              <code class="code-block">/autocomplete?prefix=commit</code>
+              <h2>Autocomplete</h2>
+              <p>Endpoint:</p>
+              <pre class="code-block">/autocomplete?prefix=commit</pre>
               <div style="text-align:center; margin-top: 1rem;">
                 <a href="/autocomplete?prefix=commit" class="button">Test Autocomplete</a>
               </div>
             </div>
             <div class="example">
-              <h2>Fuzzy Search Example</h2>
-              <p>Try the following:</p>
-              <code class="code-block">/fuzzy?query=cod%20revie&amp;max_distance=2</code>
+              <h2>Fuzzy Search</h2>
+              <p>Endpoint:</p>
+              <pre class="code-block">/fuzzy?query=cod%20revie&amp;max_distance=2</pre>
               <div style="text-align:center; margin-top: 1rem;">
                 <a href="/fuzzy?query=cod%20revie&amp;max_distance=2" class="button">Test Fuzzy Search</a>
               </div>
