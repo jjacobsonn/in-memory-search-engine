@@ -1,4 +1,7 @@
-python-Levenshtein>=0.12.0
-requests>=2.25.0
-fastapi>=0.70.0
-uvicorn>=0.18.0
+python-Levenshtein>=0.21.0
+requests>=2.31.0
+fastapi>=0.100.0
+uvicorn>=0.23.0
+httpx>=0.24.0  # Required for FastAPI test client
+pytest>=7.0.0
+pytest-sugar>=0.9.4
