@@ -11,6 +11,9 @@
 [![Forks](https://img.shields.io/github/forks/jjacobsonn/in-memory-search-engine.svg)](https://github.com/jjacobsonn/in-memory-search-engine/network/members)
 [![Releases](https://img.shields.io/github/release/jjacobsonn/in-memory-search-engine.svg)](https://github.com/jjacobsonn/in-memory-search-engine/releases)
 
+<p align="center">
+   <img src="./docs/images/logo.png" alt="Search Engine Logo" width="100" height="auto">
+</p>
 
 A high-performance in-memory search engine using realistic search data inspired by daily software engineering tasks. The API provides both advanced autocomplete and fuzzy search endpoints, returning detailed metadata.
 
@@ -83,7 +86,6 @@ Run the tests using `pytest`:
 ```bash
 pytest --maxfail=1 --disable-warnings -v
 ```
-Refer to the [Testing Guide](docs/testing.md) for more details on running and understanding the tests.
 
 ## Deployment
 Refer to the [Deployment Guide](docs/deployment.md) for detailed deployment instructions.
