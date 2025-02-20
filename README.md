@@ -2,12 +2,15 @@
 
 [![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100.0-green.svg)](https://fastapi.tiangolo.com/)
+[![Makefile](https://img.shields.io/badge/Makefile-4.4%25-blue.svg)](https://github.com/jjacobsonn/in-memory-search-engine)
+[![Dockerfile](https://img.shields.io/badge/Dockerfile-1.5%25-blue.svg)](https://github.com/jjacobsonn/in-memory-search-engine)
 [![Build Status](https://github.com/jjacobsonn/in-memory-search-engine/actions/workflows/test.yml/badge.svg)](https://github.com/jjacobsonn/in-memory-search-engine/actions)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/jjacobsonn/in-memory-search-engine.svg)](https://github.com/jjacobsonn/in-memory-search-engine/stargazers)
 [![Watchers](https://img.shields.io/github/watchers/jjacobsonn/in-memory-search-engine.svg)](https://github.com/jjacobsonn/in-memory-search-engine/watchers)
 [![Forks](https://img.shields.io/github/forks/jjacobsonn/in-memory-search-engine.svg)](https://github.com/jjacobsonn/in-memory-search-engine/network/members)
 [![Releases](https://img.shields.io/github/release/jjacobsonn/in-memory-search-engine.svg)](https://github.com/jjacobsonn/in-memory-search-engine/releases)
+
 
 A high-performance in-memory search engine using realistic search data inspired by daily software engineering tasks. The API provides both advanced autocomplete and fuzzy search endpoints, returning detailed metadata.
 
