@@ -86,6 +86,7 @@ Run the tests using `pytest`:
 ```bash
 pytest --maxfail=1 --disable-warnings -v
 ```
+For more details on test execution and coverage, refer to the [Testing Guide](docs/testing.md).
 
 ## Deployment
 Refer to the [Deployment Guide](docs/deployment.md) for detailed deployment instructions.
@@ -100,6 +101,7 @@ We welcome contributions! Please see our [Contributing Guide](docs/CONTRIBUTING.
 - [Running the Application](docs/running.md)
 - [Staging Deployment](docs/staging_deployment.md)
 - [Swagger Usage](docs/swagger_usage.md)
+- [Testing Documentation](testing.md)
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
