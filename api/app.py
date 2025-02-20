@@ -216,7 +216,7 @@ def root():
             background: #fff;
             padding: 1rem;
             border-radius: 0.375rem;
-            border: 1px solid var(--border-color);
+            border: 1px solid var (--border-color);
           }
           .example-item h3 {
             margin-top: 0;
@@ -262,6 +262,12 @@ def root():
                   <p class="example-desc">Matches: deploy, deployment, debug</p>
                   <a href="/autocomplete?prefix=de" class="button" target="_blank">Try it</a>
                 </div>
+                <div class="example-item">
+                  <h3>Agile Terms</h3>
+                  <pre class="code-block">/autocomplete?prefix=ag</pre>
+                  <p class="example-desc">Matches: agile, agile sprint, agile planning</p>
+                  <a href="/autocomplete?prefix=ag" class="button" target="_blank">Try it</a>
+                </div>
               </div>
             </div>
 
@@ -286,6 +292,12 @@ def root():
                   <pre class="code-block">/fuzzy?query=depoymnt&max_distance=2</pre>
                   <p class="example-desc">Finds: "deployment" (2 characters off)</p>
                   <a href="/fuzzy?query=depoymnt&max_distance=2" class="button" target="_blank">Try it</a>
+                </div>
+                <div class="example-item">
+                  <h3>Advanced Search</h3>
+                  <pre class="code-block">/fuzzy?query=integation%20tst&max_distance=3</pre>
+                  <p class="example-desc">Finds: "integration test" (3 characters off)</p>
+                  <a href="/fuzzy?query=integation%20tst&max_distance=3" class="button" target="_blank">Try it</a>
                 </div>
               </div>
             </div>
