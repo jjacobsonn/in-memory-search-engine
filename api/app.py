@@ -176,6 +176,7 @@ def root():
             margin-top: 0;
             font-size: 1.25rem;
             font-weight: 600;
+            text-align: center; /* Center the headers */
           }
           .code-block {
             display: block;
