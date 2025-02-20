@@ -194,6 +194,40 @@ def root():
               grid-template-columns: 1fr;
             }
           }
+          .examples-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+          }
+          .example-set {
+            background: #f9f9f9;
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+          }
+          .example-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+          }
+          .example-item {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            border: 1px solid var(--border-color);
+          }
+          .example-item h3 {
+            margin-top: 0;
+            font-size: 1rem;
+            color: var(--primary-color);
+          }
+          .example-desc {
+            font-size: 0.875rem;
+            color: #666;
+            margin: 0.5rem 0;
+          }
         </style>
       </head>
       <body>
@@ -203,26 +237,59 @@ def root():
         </header>
         <main>
           <div class="cta">
-            <a href="/docs" class="button">View API Documentation</a>
+            <a href="/docs" class="button" target="_blank">View API Documentation</a>
           </div>
-          <section class="examples">
-            <div class="example">
-              <h2>Autocomplete</h2>
-              <p>Endpoint:</p>
-              <pre class="code-block">/autocomplete?prefix=commit</pre>
-              <div style="text-align:center; margin-top: 1rem;">
-                <a href="/autocomplete?prefix=commit" class="button">Test Autocomplete</a>
+          <div class="examples-grid">
+            <div class="example-set">
+              <h2>Autocomplete Examples</h2>
+              <p>Try these examples to see prefix-based search in action:</p>
+              <div class="example-list">
+                <div class="example-item">
+                  <h3>Development Terms</h3>
+                  <pre class="code-block">/autocomplete?prefix=co</pre>
+                  <p class="example-desc">Matches: commit, code review, container</p>
+                  <a href="/autocomplete?prefix=co" class="button" target="_blank">Try it</a>
+                </div>
+                <div class="example-item">
+                  <h3>Testing Related</h3>
+                  <pre class="code-block">/autocomplete?prefix=test</pre>
+                  <p class="example-desc">Matches: test, testing, test suite</p>
+                  <a href="/autocomplete?prefix=test" class="button" target="_blank">Try it</a>
+                </div>
+                <div class="example-item">
+                  <h3>DevOps Terms</h3>
+                  <pre class="code-block">/autocomplete?prefix=de</pre>
+                  <p class="example-desc">Matches: deploy, deployment, debug</p>
+                  <a href="/autocomplete?prefix=de" class="button" target="_blank">Try it</a>
+                </div>
               </div>
             </div>
-            <div class="example">
-              <h2>Fuzzy Search</h2>
-              <p>Endpoint:</p>
-              <pre class="code-block">/fuzzy?query=cod%20revie&amp;max_distance=2</pre>
-              <div style="text-align:center; margin-top: 1rem;">
-                <a href="/fuzzy?query=cod%20revie&amp;max_distance=2" class="button">Test Fuzzy Search</a>
+
+            <div class="example-set">
+              <h2>Fuzzy Search Examples</h2>
+              <p>Explore these examples to see typo-tolerant searching:</p>
+              <div class="example-list">
+                <div class="example-item">
+                  <h3>Basic Typo</h3>
+                  <pre class="code-block">/fuzzy?query=comit&max_distance=1</pre>
+                  <p class="example-desc">Finds: "commit" (1 character off)</p>
+                  <a href="/fuzzy?query=comit&max_distance=1" class="button" target="_blank">Try it</a>
+                </div>
+                <div class="example-item">
+                  <h3>Multiple Words</h3>
+                  <pre class="code-block">/fuzzy?query=cod%20reviw&max_distance=2</pre>
+                  <p class="example-desc">Finds: "code review" (2 characters off)</p>
+                  <a href="/fuzzy?query=cod%20reviw&max_distance=2" class="button" target="_blank">Try it</a>
+                </div>
+                <div class="example-item">
+                  <h3>Complex Match</h3>
+                  <pre class="code-block">/fuzzy?query=depoymnt&max_distance=2</pre>
+                  <p class="example-desc">Finds: "deployment" (2 characters off)</p>
+                  <a href="/fuzzy?query=depoymnt&max_distance=2" class="button" target="_blank">Try it</a>
+                </div>
               </div>
             </div>
-          </section>
+          </div>
         </main>
         <footer>
           &copy; 2025 In-Memory Search Engine. All rights reserved.
